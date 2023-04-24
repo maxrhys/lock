@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lock My Computer</title>
+    <style>
+      /* Set the background to black */
+      body {
+        background-color: black;
+      }
+
+      /* Set the content to full screen */
+      html, body, h1 {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      /* Set the text to Comic Sans font */
+      h1 {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-size: 6vw; /* set font size relative to viewport width */
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Set the rainbow gradient as background */
+      h1 {
+        background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff);
+        background-size: 1000% 1000%;
+        -webkit-background-clip: text; /* apply gradient to text */
+        -webkit-text-fill-color: transparent; /* make text transparent */
+        animation: rainbow-gradient 10s ease infinite;
+      }
+
+      /* Animate the rainbow gradient */
+      @keyframes rainbow-gradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Add text at the bottom of the window */
+      .close-text {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        color: white;
+        font-size: 24px;
+        font-family: Arial, sans-serif; /* change font to Arial */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>I will lock my computer</h1>
+    <div class="close-text">Press any key to close.</div>
+
+    <script>
+      // Trigger full screen mode when the page is loaded
+      document.addEventListener('click', function() {
+        var element = document.documentElement;
+        var requestFullScreen = element.requestFullscreen || element.mozRequestFullScreen || element.webkitRequestFullScreen || element.msRequestFullscreen;
+        requestFullScreen.call(element);
+      });
+
+      // Close the tab when any key is pressed
+      document.addEventListener('keydown', function(event) {
+        window.close();
+      });
+    </script>
+  </body>
+</html>
