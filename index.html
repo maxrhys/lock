@@ -44,7 +44,7 @@
         50% {
           background-position: 100% 50%;
         }
-        100% {
+         100% {
           background-position: 0% 50%;
         }
       }
@@ -63,7 +63,7 @@
   </head>
   <body>
     <h1>I will lock my computer</h1>
-    <div class="close-text">Press Ctrl + C to close.</div>
+    <div class="close-text">Press any key or double tap the screen to continue.</div>
 
     <script>
       // Trigger full screen mode when the page is loaded
@@ -72,6 +72,39 @@
         var requestFullScreen = element.requestFullscreen || element.mozRequestFullScreen || element.webkitRequestFullScreen || element.msRequestFullscreen;
         requestFullScreen.call(element);
       });
+
+      // Redirect to another page when a key is pressed
+      document.addEventListener('keydown', function(event) {
+        // Set the URL of the target page here
+        var targetUrl = "info.html";
+      
+        
+        // Redirect to the target page
+        window.location.href = targetUrl;
+
+      });
+      
+    // Redirect to another page on double tap
+var tapTimer;
+var tapCount = 0;
+document.addEventListener('touchstart', function(event) {
+  // Set the URL of the target page here
+  var targetUrl = "info.html";
+  
+  // Start the timer and increment the tap count
+  tapCount++;
+  if (tapCount === 1) {
+    tapTimer = setTimeout(function() {
+      tapCount = 0;
+    }, 300); // Set the time interval for a single tap
+  } else if (tapCount === 2) {
+    clearTimeout(tapTimer);
+    tapCount = 0;
+    
+    // Redirect to the target page
+    window.location.href = targetUrl;
+  }
+});
     </script>
   </body>
 </html>
