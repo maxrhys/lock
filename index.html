@@ -63,7 +63,7 @@
   </head>
   <body>
     <h1>I will lock my computer</h1>
-    <div class="close-text">Press any key to close.</div>
+    <div class="close-text">Press Ctrl + C to close.</div>
 
     <script>
       // Trigger full screen mode when the page is loaded
@@ -71,11 +71,6 @@
         var element = document.documentElement;
         var requestFullScreen = element.requestFullscreen || element.mozRequestFullScreen || element.webkitRequestFullScreen || element.msRequestFullscreen;
         requestFullScreen.call(element);
-      });
-
-      // Close the tab when any key is pressed
-      document.addEventListener('keydown', function(event) {
-        window.close();
       });
     </script>
   </body>
